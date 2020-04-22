@@ -1,10 +1,12 @@
-function executeScriptFail() {
-  console.log("Couldn't execute script");
-}
-
 function onBrowserActionClicked(tab) {
   if (tab.url.match(/.*:\/\/.*.youtube.com\/playlist.*/g)) {
-    browser.tabs.executeScript({ file: "playlist.js" }).catch(executeScriptFail);
+    browser.browserAction.setPopup({ popup: '/popups/youtube/index.html' });
+    browser.browserAction.openPopup();
+    browser.browserAction.setPopup({ popup: '' });
+  } else if (tab.url.match(/.*:\/\/thenamlessguy.github.io\/youtube_player.*/g)) {
+    browser.browserAction.setPopup({ popup: '/popups/youtube_player/index.html' });
+    browser.browserAction.openPopup();
+    browser.browserAction.setPopup({ popup: '' });
   }
 }
 
