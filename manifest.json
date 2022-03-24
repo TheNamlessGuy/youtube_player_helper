@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "youtube_player helper",
-  "version": "0.2",
+  "version": "0.3",
   "description": "Does some helpful stuff to help with https://thenamlessguy.github.io/youtube_player/",
   "homepage_url": "https://github.com/TheNamlessGuy/youtube_player_helper",
   "icons": {
@@ -9,16 +9,24 @@
   },
 
   "permissions": [
+    "<all_urls>",
+    "tabs",
     "activeTab"
   ],
 
-  "browser_action": {
+  "page_action": {
+    "browser_style": true,
     "default_icon": "icons/ico.png",
-    "default_title": "youtube_player helper",
-    "browser_style": true
+    "default_title": "youtube_player helper"
   },
 
   "background": {
-    "scripts": ["background.js"]
+    "scripts": [
+      "helpers.js",
+
+      "popups/youtube/background.js",
+
+      "background.js"
+    ]
   }
 }
